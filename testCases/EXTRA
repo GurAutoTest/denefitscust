@@ -1,0 +1,7 @@
+baseURL = "https://testcustomer.denefits.com"
+    username = 'gurdeep.singh+cust@bridgingtech.com'
+    password = '123123'
+
+
+    pytest -v -s testCases/test_lo
+gin.py --browser chrome

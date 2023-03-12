@@ -1,0 +1,8 @@
+pytest -v -s testCases/test_login.py
+pytest -v -s testCases/test_login.py --browser chrome
+pytest -v -s -n=2 testCases/test_login.py --browser chrome
+pytest -v -s -n=2 --html=Report\report.html testCases/test_login.py --browser chrome
+pytest -v -s --html=Report\report.html testCases/test_login_ddt.py --browser chrome
+
+
+https://github.com/GurAutoTest/denefitscust.git

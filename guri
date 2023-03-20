@@ -6,3 +6,11 @@ pytest -v -s --html=Report\report.html testCases/test_login_ddt.py --browser chr
 
 
 https://github.com/GurAutoTest/denefitscust.git
+
+
+git status
+git add -A
+git commit origin ""
+git push origin master
+
+git pull

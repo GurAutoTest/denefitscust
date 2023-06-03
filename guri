@@ -1,7 +1,7 @@
 pytest -v -s testCases/test_login.py
 pytest -v -s testCases/test_login.py --browser chrome
 pytest -v -s -n=2 testCases/test_login.py --browser chrome
-pytest -v -s -n=2 --html=Report\report.html testCases/test_login.py --browser chrome
+        pytest -v -s -n=2 --html=Report\report.html testCases/test_login.py --browser chrome
 pytest -v -s --html=Report\report.html testCases/test_login_ddt.py --browser chrome
 
 
@@ -14,3 +14,5 @@ git commit origin ""
 git push origin master
 
 git pull
+
+cd C:\Users\guri\PycharmProjects\denefitscust\

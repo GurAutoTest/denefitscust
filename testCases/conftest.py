@@ -4,10 +4,8 @@ import chromedriver_autoinstaller
 from selenium.webdriver.chrome.service import Service
 import geckodriver_autoinstaller
 
+
 # new
-
-
-
 
 
 # @pytest.fixture()
@@ -38,13 +36,13 @@ def browser(request):  # This will return the Browser value to setup method
     return request.config.getoption("--browser")
 
 
-########### pytest HTML Report ################
+# pytest HTML Report ################
 
 # It is hook for Adding Environment info to HTML Report
 def pytest_configure(config):
-    config._metadata['Project Name'] = 'denefits'
-    config._metadata['Module Name'] = 'Customers'
-    config._metadata['Tester'] = 'guri'
+    config.metadata['Project Name'] = 'denefits'
+    config.metadata['Module Name'] = 'Customers'
+    config.metadata['Tester'] = 'guri'
 
 
 # It is hook for delete/Modify Environment info to HTML Report

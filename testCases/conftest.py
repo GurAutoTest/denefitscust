@@ -42,8 +42,6 @@ def browser(request):  # This will return the Browser value to setup method
 # def pytest_configure(config):
 #     pytest_configure
 #     config._metadata["Tester"] = "guri"
-def pytest_configure(self):
-    self._metadata["foo"] = "bar"
 
 
 # It is hook for delete/Modify Environment info to HTML Report

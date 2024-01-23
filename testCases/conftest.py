@@ -1,31 +1,35 @@
 import pytest
 from selenium import webdriver
-import chromedriver_autoinstaller
-from selenium.webdriver.chrome.service import Service
 import geckodriver_autoinstaller
-
+import time
 
 # new
 
 
 
-# @pytest.fixture()
-# def setup():
-#     chromedriver_autoinstaller.install()
-#     driver = webdriver.Chrome(service=Service())
-#     print("Launching chrome browser.........")
-#     return driver
 @pytest.fixture()
-def setup(browser):
-    if browser == 'chrome':
-        chromedriver_autoinstaller.install()
-        driver = webdriver.Chrome(service=Service())
-        print("Launching chrome browser.........")
-    elif browser == 'firefox':
-        geckodriver_autoinstaller.install()
-        driver = webdriver.Firefox()
-        print("Launching firefox browser.........")
+def setup():
+    # chromedriver_autoinstaller.install()
+    driver = webdriver.Chrome()
+    driver.maximize_window()
+
+
+ 
+    print("Launching chrome browser.........")
     return driver
+
+# @pytest.fixture()
+# def setup(browser):
+#     if browser == 'chrome':
+#         chromedriver_autoinstaller.install()
+#         driver = webdriver.Chrome(service=Service())
+#         print("Launching chrome browser.........")
+#     elif browser == 'firefox':
+#         geckodriver_autoinstaller.install()
+#         driver = webdriver.Firefox()
+#         print("Launching firefox browser.........")
+#     return driver
+
 
 
 def pytest_addoption(parser):  # This will get the value from CLI /hooks

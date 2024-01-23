@@ -2,12 +2,13 @@ import pytest
 from pageObjects.LoginPage import LoginPage
 from utilities.readProperties import ReadConfig
 from utilities.customLogger import LogGen
+import time
 
 
 class Test_001_Login:
-    baseURL = ReadConfig.getApplicationURL()
-    username = ReadConfig.getUseremail()
-    password = ReadConfig.getPassword()
+    baseURL = "https://testcustomer.denefits.com"
+    username = "gurdeep.singh+cust@bridgingtech.com"
+    password = "123123"
     logger = LogGen.loggen()
 
     @pytest.mark.regression
@@ -28,8 +29,8 @@ class Test_001_Login:
             self.driver.save_screenshot(".\\Screenshots\\" + "test_homePageTitle.png")
             self.driver.close()
             print("1f")
+    # @pytest.mark.sanity
 
-    @pytest.mark.sanity
     @pytest.mark.regression
     def test_login(self, setup):
 
@@ -37,8 +38,9 @@ class Test_001_Login:
         self.driver = setup
         self.driver.get(self.baseURL)
         self.lp = LoginPage(self.driver)
-        self.lp.setUserName(self.username)
+        self.lp.setUserName(self.username)                  
         self.lp.setPassword(self.password)
+        time.sleep(5)
         self.lp.clickLogin()
         act_title = self.driver.title
 

@@ -10,7 +10,7 @@ class Linkedin_LoginPage:
     # textbox_password_xpath = "/html/body/app-root/div/div/app-login/div/form/div[1]/div[2]/input"
     textbox_password_id = "session_password"
 
-    button_login_name = "homepage-basic_sign-in-submit-btn"
+    button_login_name = "/html/body/main/section[1]/div/div/form/div[2]/button"
 
     # button_logout_drop_xpath = "/html/body/app-root/div/div/app-dashboard/div/div[2]/div[1]/div/div[2]/div/app-profile-drop-down/header/div/div/button"
     # button_logout_xpath = "/html/body/app-root/div/div/app-dashboard/div/div[2]/div[1]/div/div[2]/div/app-profile-drop-down/header/div/div/ul/li[7]/a"
@@ -30,7 +30,7 @@ class Linkedin_LoginPage:
         self.driver.find_element(By.ID, self.textbox_password_id).send_keys(password)
 
     def clickLogin(self):
-        self.driver.find_element(By.NAME, self.button_login_name).click()
+        self.driver.find_element(By.XPATH, self.button_login_name).click()
 
     # def clickContinue(self):
     #     self.driver.find_element(By.XPATH, self.button_continue_xpath).click()  

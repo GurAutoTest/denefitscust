@@ -7,7 +7,7 @@ class BusiApplePage:
 
     text_financed_amount_xpath = "/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div[1]/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[1]/div/label[2]/span"
     text_downpayment_amount_xpath = "/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div[1]/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/h4"
-    text_no_of_month_xpath = ""
+    text_no_of_month_xpath = "/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div[1]/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/h4"
     
     # value_no_of_month_xpath = "/html/body/app-root/app-layout/div/section/div/app-details/div[3]/div[1]/div[1]/div[2]/div/div[2]/div[1]/div/div[6]/h6"
     id_panel_financed_amount="financed_amount"
@@ -73,7 +73,7 @@ class BusiApplePage:
         print(self.value_finaced_ammount)
     def textdownpaymentamount(self):
 
-        self.text_downpayment_amount=(self.driver.find_element(By.ID, self.text_downpayment_amount_xpath).text)
+        self.text_downpayment_amount=(self.driver.find_element(By.XPATH, self.text_downpayment_amount_xpath).text)
         print(self.text_downpayment_amount)    
     
     def textnumberofmonth(self):

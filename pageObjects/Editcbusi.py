@@ -53,37 +53,8 @@ class Test_001_Login:
 
 
         if act_title == "Denefits Business":
-            self.logger.info("****Login test passed ****")
-            print("2t")
-
-            self.driver.get(self.baseURL)
-            time.sleep(5)
-            print("plan executed")
-            self.cd = AdminCDPage(self.driver)
-            self.cd.textfincedamount()
-            time.sleep(5)
-            print(self.cd.s)
-            self.cd.valuedownp()
-            time.sleep(5)
-            print(self.cd.vdp)
-
-            self.cd.valuenofm()
-            time.sleep(5)
-            print(self.cd.nfm)
-            
-            self.cd.valueoftheintrest()
-            time.sleep(5)
-            print(self.cd.intpanel)
-
-            # self.cal = fun_caluculate(self.driver)       
-            
-            
-            # self.calcalculte(self.driver)
-            self.cal = calculate(self.driver)
-            self.cal.initial_cal(self.cd.s,self.cd.vdp,self.cd.nfm,self.cd.intpanel)
-
-            # self.cd.clickShowPayments()
-            # time.sleep(8)
+          self.lp.clickPaymentPlans()
+        
 
         
 

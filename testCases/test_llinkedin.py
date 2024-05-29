@@ -1,5 +1,5 @@
 import pytest
-from pageObjects.LoginPage import LoginPage
+from pageObjects.linkedin_login_page import Linkedin_LoginPage
 from pageObjects.AdminCDPage import AdminCDPage
 from testCases.calculate import calculate
 from utilities.readProperties import ReadConfig

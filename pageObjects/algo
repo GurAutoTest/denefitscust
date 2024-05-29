@@ -1,0 +1,79 @@
+login 
+click payment plan 
+manage contract > 
+full details of payment plan
+
+then call busi get all values 
+
+store in obeject
+
+then call mycalculated values 
+
+call compare() then print in excel 
+
+//then click action button 
+
+//> edit contract 
+
+choose fixed cases or rendom  accoding to fixture
+
+ if fixed 
+     
+     create fixed amount contracts throgh api around 200 contracts and upload in sheet 
+
+
+     call a function edit contract def () 
+     
+                           
+if random 
+      
+      make many rendom contract 
+
+      set all values in sheet 
+
+      call edit contract def
+
+
+
+
+
+function edit contract def () 
+
+{
+
+     accoding to sheet find contract and accoding to sheet do payments check all values one by one 
+
+     then my edit contract caluculated values () 
+
+     ******
+     
+     then varify rec amount of system value and my edit contract caluculated values () is same (call a function name verify rec value after edit ())
+
+     if matched  
+               if  verfy old uf is smaller then new uf then 
+                    go to payment page and accoding to sheet do payment from 4 matheods 
+                    and then call busi get all values store in obeject
+                    call then call mycalculated values 
+
+                    compare all values after edit ()   (my calculateed values , get all values , and my edit contract caluculated values ())
+                     and print all tree object in sheet  and accoding to it give color to contract
+                else    // in case of values are same 
+                    go to non payment page and and edit contrct click 
+                               and then call busi get all values store in obeject
+                    call then call mycalculated values 
+
+                    compare all values after edit ()   (my calculateed values , get all values , and my edit contract caluculated values ())
+                     and print all tree object in sheet  and accoding to it give color to contract
+     else    /// if rec not matched 
+
+        throgh the error in sheet and 
+        compare all values after edit ()   (my calculateed values , get all values , and my edit contract caluculated values ())
+        and print all tree object in sheet  and accoding to it give color to contract 
+
+
+
+
+
+
+
+

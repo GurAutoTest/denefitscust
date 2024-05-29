@@ -73,3 +73,26 @@ class Busi_get_all:
         # time.sleep(2)
         # print(self.cd.panelTotalBalanceRemaining)
             
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+      def  getnewvalues(self):
+
+        print("edit function")
+        self.editbusivalue = BusiApplePage(self.driver)
+        
+        self.editbusivalue.clickaction()
+        time.sleep(2)
+        self.editbusivalue.clickContinue()
+        time.sleep(2)
+        self.editbusivalue.textnewfinacedamount(1200s)
+        time.sleep(5)
+        
+        

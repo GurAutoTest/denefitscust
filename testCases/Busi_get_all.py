@@ -31,12 +31,24 @@ class Busi_get_all:
         # print("panel_totel reminnig amount during def = " +str(result8))
         self.busivalue.textfinacedamount()
         time.sleep(5)
-        # print(self.cd.s)
+        
+        
+        self.busivalue.textnumberofmonth()
+        time.sleep(5)
+        print(self.busivalue.text_number_of_month)
+
         self.busivalue.textdownpaymentamount()
         time.sleep(5)
-        # print(self.cd.vdp)
+        
+        self.busivalue.textCustomerPayoffAmount()
+        time.sleep(5)
+        
+           
+        self.busivalue.textRemainingExpectedPayout()
+        time.sleep(5)
 
-        self.busivalue.textnumberofmonth()
+   
+        self.busivalue.textExpectedMonthlyPayout()
         time.sleep(5)
         # print(self.cd.nfm)
             

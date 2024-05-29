@@ -11,11 +11,11 @@ import time
 class Test_001_Login:
     # baseURL = "https://testcustomer.denefits.com"
     baseURL = "https://testbusiness.denefits.com"
-    username = "gurdeep.singh+blacklabel@bridgingtech.com"
+    username = "gurdeep.singh+secoldpart1712@bridgingtech.com"
     password = "sookie"
     logger = LogGen.loggen()
     def getAllfunc():
-        printO("called")
+        print("called")
 
 
 
@@ -41,9 +41,9 @@ class Test_001_Login:
             self.logger.info("****Login test passed ****")
             print("2t")
             
-            self.lp.clickPaymentPlan()
+            self.lp.clickPaymentPlans()
             time.sleep(5)
-            self.lp.clickManageContract()
+            self.lp.clickManagecontracts()
             time.sleep(25)
             self.driver.save_screenshot(".\\Screenshots\\" + "test_where_i_m.png")
             self.lp.clickFullPaymentPlanDetails()

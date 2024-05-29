@@ -6,8 +6,8 @@ class BusiApplePage:
     button_showpayments_xpath = "/html/body/app-root/app-layout/div/section/div/app-details/div[3]/div[2]/div/button"
 
     text_financed_amount_xpath = "/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div[1]/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[1]/div/label[2]/span"
-    text_downpayment_amount_xpath = "/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div[1]/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/h4"
-    text_no_of_month_xpath = "/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div[1]/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/h4"
+    text_downpayment_amount_xpath = "/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/h4"
+    text_no_of_month_xpath = "/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div/div[2]/div[2]/app-contract-details/div/div/div[2]/div[2]/div[2]/div[1]/div[3]/p/label/span"
     
     # value_no_of_month_xpath = "/html/body/app-root/app-layout/div/section/div/app-details/div[3]/div[1]/div[1]/div[2]/div/div[2]/div[1]/div/div[6]/h6"
     id_panel_financed_amount="financed_amount"
@@ -35,6 +35,24 @@ class BusiApplePage:
     # button_logout_xpath = "/html/body/app-root/div/div/app-dashboard/div/div[2]/div[1]/div/div[2]/div/app-profile-drop-down/header/div/div/ul/li[7]/a"   
     # button_logout_last_xpath = "/html/body/modal-container/div[2]/div/app-logout-confirm/div[2]/div/button[2]"
  
+    text_Customer_Payoff_Amount_xpath = "/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[2]/div[1]/div[2]"
+    text_Remaining_Expected_Payout_xpath ="/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[2]/div[2]/div[2]"
+    text_Paid_to_Business_xpath ="/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[2]/div[3]/div[2]"
+    text_Expected_Monthly_Payout_xpath =  "/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[2]/div[4]/div[2]"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     def __init__(self, driver):
         self.driver = driver
@@ -80,6 +98,28 @@ class BusiApplePage:
         self.text_number_of_month=(self.driver.find_element(By.ID, self.text_no_of_month_xpath).text)
         print("errrorhare")
         print(self.text_number_of_month)    
+    
+    
+    def textCustomerPayoffAmount(self):
+        self.text_Customer_Payoff_Amount=(self.driver.find_element(By.ID, self.text_Customer_Payoff_Amount_xpath).text)
+        print(self.text_Customer_Payoff_Amount)    
+    
+    def textRemainingExpectedPayout(self):
+        self.text_Remaining_Expected_Payout=(self.driver.find_element(By.ID, self.text_Remaining_Expected_Payout_xpath).text)
+        print(self.text_Remaining_Expected_Payout)    
+    
+    def textPaidtoBusiness(self):
+        self.text_Paid_to_Business=(self.driver.find_element(By.ID, self.text_Paid_to_Business_xpath).text)
+        print(self.text_Paid_to_Business)    
+    
+        
+    def textExpectedMonthlyPayout(self):
+        self.text_Expected_Monthly_Payout=(self.driver.find_element(By.ID, self.text_Expected_Monthly_Payout_xpath).text)
+        print(self.text_Expected_Monthly_Payout)
+    
+    
+    
+    
     # def valueoftheintrest(self):
     #     self.value_of_intrest=(self.driver.find_element(By.ID, self.value_intrest_id).text)
     #     print(self.value_of_intrest)

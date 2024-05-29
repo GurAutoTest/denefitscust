@@ -50,7 +50,8 @@ class Test_001_Login:
             time.sleep(5)
             self.get=Busi_get_all(self.driver)
             time.sleep(5)
-            panelresult = self.get.getAll()
+            busi_all_values_dict = self.get.getAll()
+            print(busi_all_values_dict)
 
 
 

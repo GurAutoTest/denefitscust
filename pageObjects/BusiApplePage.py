@@ -39,7 +39,7 @@ class BusiApplePage:
     text_Remaining_Expected_Payout_xpath ="/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[2]/div[2]/div[2]"
     text_Paid_to_Business_xpath ="/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[2]/div[3]/div[2]"
     text_Expected_Monthly_Payout_xpath =  "/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[2]/div[4]/div[2]"
-
+    text_downpayment_amount_less_xpath = "/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[1]/div/div[2]/div[1]/h4"
 
 
 
@@ -89,35 +89,40 @@ class BusiApplePage:
     def textfinacedamount(self):
         self.value_finaced_ammount=(self.driver.find_element(By.XPATH, self.text_financed_amount_xpath).text)
         print(self.value_finaced_ammount)
+    
     def textdownpaymentamount(self):
-
         self.text_downpayment_amount=(self.driver.find_element(By.XPATH, self.text_downpayment_amount_xpath).text)
-        print(self.text_downpayment_amount)    
+        print(self.text_downpayment_amount)   
+         
+    def textdownpaymentamountless12(self):
+        self.text_downpayment_amount_less=(self.driver.find_element(By.XPATH, self.text_downpayment_amount_less_xpath).text)
+        print(self.text_downpayment_amount_less)     
     
     def textnumberofmonth(self):
-        self.text_number_of_month=(self.driver.find_element(By.ID, self.text_no_of_month_xpath).text)
+        self.text_number_of_month=(self.driver.find_element(By.XPATH, self.text_no_of_month_xpath).text)
         print("errrorhare")
         print(self.text_number_of_month)    
     
     
     def textCustomerPayoffAmount(self):
-        self.text_Customer_Payoff_Amount=(self.driver.find_element(By.ID, self.text_Customer_Payoff_Amount_xpath).text)
+        self.text_Customer_Payoff_Amount=(self.driver.find_element(By.XPATH, self.text_Customer_Payoff_Amount_xpath).text)
         print(self.text_Customer_Payoff_Amount)    
     
     def textRemainingExpectedPayout(self):
-        self.text_Remaining_Expected_Payout=(self.driver.find_element(By.ID, self.text_Remaining_Expected_Payout_xpath).text)
+        self.text_Remaining_Expected_Payout=(self.driver.find_element(By.XPATH, self.text_Remaining_Expected_Payout_xpath).text)
         print(self.text_Remaining_Expected_Payout)    
     
     def textPaidtoBusiness(self):
-        self.text_Paid_to_Business=(self.driver.find_element(By.ID, self.text_Paid_to_Business_xpath).text)
+        self.text_Paid_to_Business=(self.driver.find_element(By.XPATH, self.text_Paid_to_Business_xpath).text)
         print(self.text_Paid_to_Business)    
     
         
     def textExpectedMonthlyPayout(self):
-        self.text_Expected_Monthly_Payout=(self.driver.find_element(By.ID, self.text_Expected_Monthly_Payout_xpath).text)
+        self.text_Expected_Monthly_Payout=(self.driver.find_element(By.XPATH, self.text_Expected_Monthly_Payout_xpath).text)
         print(self.text_Expected_Monthly_Payout)
-    
-    
+        return {'value_finaced_ammount': self.value_finaced_ammount , 'text_downpayment_amount': self.text_downpayment_amount , 'text_downpayment_amount_less': self.text_downpayment_amount_less , 
+                'text_number_of_month' : self.text_number_of_month ,  'text_Customer_Payoff_Amount': self.text_Customer_Payoff_Amount , } 
+
     
     
     # def valueoftheintrest(self):

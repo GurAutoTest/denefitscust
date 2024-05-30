@@ -6,7 +6,6 @@ class BusiApplePage:
     button_showpayments_xpath = "/html/body/app-root/app-layout/div/section/div/app-details/div[3]/div[2]/div/button"
 
     text_financed_amount_xpath = "/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div[1]/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[1]/div/label[2]/span"
-<<<<<<< HEAD
     text_downpayment_amount_xpath = "/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/h4"
     text_no_of_month_xpath = "/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div/div[2]/div[2]/app-contract-details/div/div/div[2]/div[2]/div[2]/div[1]/div[3]/p/label/span"
     
@@ -29,10 +28,8 @@ class BusiApplePage:
     
     # textbox_password_xpath = "/html/body/app-root/div/div/app-login/div/form/div[1]/div[2]/input"
     # textbox_password_xpath = "/html/body/app-root/app-login/div[2]/div/form/div[1]/div/input"
-=======
     text_downpayment_amount_xpath = "/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div[1]/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/h4"
     text_no_of_month_xpath = "/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div[1]/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/h4"
->>>>>>> a2efcd7 (terst)
 
     text_new_financed_amount_xpath = "/html/body/div[4]/div[2]/div/mat-dialog-container/app-contract-dialog/div/div[1]/div[1]/div[2]/div[2]/div/input"
     text_new_number_of_month_xpath="/html/body/div[4]/div[2]/div/mat-dialog-container/app-contract-dialog/div/div[1]/div[1]/div[3]/div[1]/input"
@@ -66,11 +63,9 @@ class BusiApplePage:
 
 
     def textfinacedamount(self):
-<<<<<<< HEAD
         self.value_finaced_ammount=(self.driver.find_element(By.XPATH, self.text_financed_amount_xpath).text)
         print(self.value_finaced_ammount)
     
-=======
         self.text_finaced_ammount=(self.driver.find_element(By.XPATH, self.text_financed_amount_xpath).text)
         print(self.text_finaced_ammount)
   
@@ -87,7 +82,6 @@ class BusiApplePage:
         self.driver.find_element(By.XPATH, self.text_financed_amount_xpath).send_keys(newfinacedammount)
   
   
->>>>>>> a2efcd7 (terst)
     def textdownpaymentamount(self):
         self.text_downpayment_amount=(self.driver.find_element(By.XPATH, self.text_downpayment_amount_xpath).text)
         print(self.text_downpayment_amount)   
@@ -100,7 +94,6 @@ class BusiApplePage:
         self.text_number_of_month=(self.driver.find_element(By.XPATH, self.text_no_of_month_xpath).text)
         print("errrorhare")
         print(self.text_number_of_month)    
-<<<<<<< HEAD
     
     
     def textCustomerPayoffAmount(self):
@@ -124,7 +117,6 @@ class BusiApplePage:
 
     
     
-=======
 
     def textnewnumberofmonth(self):
         self.text_new_number_of_month=(self.driver.find_element(By.ID, self.text_new_number_of_month_xpath).text)
@@ -177,7 +169,6 @@ class BusiApplePage:
 
 
 
->>>>>>> a2efcd7 (terst)
     # def valueoftheintrest(self):
     #     self.value_of_intrest=(self.driver.find_element(By.ID, self.value_intrest_id).text)
     #     print(self.value_of_intrest)

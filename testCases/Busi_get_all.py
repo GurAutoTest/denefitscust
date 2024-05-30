@@ -5,16 +5,16 @@ import time
 
 
 class Busi_get_all:
-      # self.driver = setup
-      # cd = AdminCDPage()
-      # cd.textfincedamount()
-      # finaced_amount = 78
-      print("in the class gettalllllllllll busi get")
+    # self.driver = setup
+    # cd = AdminCDPage()
+    # cd.textfincedamount()
+    # finaced_amount = 78
+    print("in the class gettalllllllllll busi get")
 
-      def __init__(self, driver):
+    def __init__(self, driver):
         self.driver = driver
 
-      def getAll(self):
+    def getAll(self):
         print("plan executed in get values")
         self.busivalue = BusiApplePage(self.driver)
         # panel_all_values_dict = self.cd.get_all_values()
@@ -36,23 +36,21 @@ class Busi_get_all:
            self.busivalue.textdownpaymentamount()
            time.sleep(5)
         else:
-          self.busivalue.textdownpaymentamountless12()   
+          self.busivalue.textdownpaymentamountless12()
           print("inelsefromdp")
-             
+
         self.busivalue.textCustomerPayoffAmount()
         time.sleep(5)
         self.busivalue.textRemainingExpectedPayout()
         time.sleep(5)
 
-   
         self.busivalue.textExpectedMonthlyPayout()
         time.sleep(5)
         # print(self.cd.nfm)
-            
+
         # self.busivalue.valueoftheintrest()
         # time.sleep(2)
-            
-            
+
         # self.busivalue.panelrecurring()
         # time.sleep(2)
         # self.busivalue.panelupfrontfee()
@@ -72,27 +70,16 @@ class Busi_get_all:
         # self.busivalue.panelTotalBalanceRemaining()
         # time.sleep(2)
         # print(self.cd.panelTotalBalanceRemaining)
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-      def  getnewvalues(self):
+
+
+    def getnewvalues(self):
 
         print("edit function")
         self.editbusivalue = BusiApplePage(self.driver)
-        
+
         self.editbusivalue.clickaction()
         time.sleep(2)
         self.editbusivalue.clickContinue()
         time.sleep(2)
-        self.editbusivalue.textnewfinacedamount(1200s)
+        self.editbusivalue.textnewfinacedamount()
         time.sleep(5)
-        
-        

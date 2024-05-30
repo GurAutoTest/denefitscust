@@ -1,35 +1,23 @@
 import pytest
 from pageObjects.LoginPageBusi import LoginPageBusi
 from pageObjects.AdminCDPage import AdminCDPage
-from testCases.Busi_get_all import  Busi_get_all
+from testCases.Busi_get_all import Busi_get_all
 from testCases.calculate import calculate
 from utilities.readProperties import ReadConfig
 from utilities.customLogger import LogGen
+from utilities import XLUtils
 import time
 
 
 class Test_001_Login:
-<<<<<<< HEAD
-    # baseURL = "https://testcustomer.denefits.com"
-    baseURL = "https://testbusiness.denefits.com"
-    username = "gurdeep.singh+secoldpart1712@bridgingtech.com"
-    password = "sookie"
-    logger = LogGen.loggen()
-    def getAllfunc():
-        print("called")
-=======
     # # baseURL = "https://testcustomer.denefits.com"
     # baseURL = "https://testbusiness.denefits.com"
     # username = "gurdeep.singh+blacklabel@bridgingtech.com"
     # password = "sookie"
 
-
     # logger = LogGen.loggen()
     # def getAllfunc():
     #     printO("called")
->>>>>>> a2efcd7 (terst)
-
-
 
     # def test_login(self, setup ):
 
@@ -51,14 +39,14 @@ class Test_001_Login:
     path = ".//TestData/LoginData.xlsx"
     logger = LogGen.loggen()  # Logger
 
-    @pytest.mark.regression
-    def test_login_ddt(self, setup):
+    # @pytest.mark.regression
+    def test_login(self, setup):
         self.logger.info("******* Starting Test_002_DDT_Login Test **********")
         self.logger.info("******* Starting Login DDT Test **********")
         self.driver = setup
         self.driver.get(self.baseURL)
         self.driver.maximize_window()
-        self.lp = LoginPage(self.driver)
+        self.lp = LoginPageBusi(self.driver)
 
         self.rows = XLUtils.getRowCount(self.path, 'Sheet1')
         print('Number of rows...', self.rows)
@@ -76,85 +64,71 @@ class Test_001_Login:
             self.lp.clickLogin()
             time.sleep(15)
 
+            act_title = self.driver.title
+            exp_title = "Denefits Customer"
+            print(act_title)
 
+            if act_title == "Denefits Business":
 
-        if act_title == "Denefits Business":
-            self.logger.info("****Login test passed ****")
-            print("2t")
-            
-            self.lp.clickPaymentPlans()
-            time.sleep(5)
-            self.lp.clickManagecontracts()
-            time.sleep(25)
-            self.driver.save_screenshot(".\\Screenshots\\" + "test_where_i_m.png")
-            self.lp.clickFullPaymentPlanDetails()
-            time.sleep(5)
-            self.get=Busi_get_all(self.driver)
-            time.sleep(5)
-<<<<<<< HEAD
-            busi_all_values_dict = self.get.getAll()
-            print(busi_all_values_dict)
-=======
-            panelresult = self.get.getAll()
-            time.sleep(25)
-           
->>>>>>> a2efcd7 (terst)
+              self.logger.info("****Login test passed ****")
+              print("2t")
 
-
+              self.lp.clickPaymentPlans()
+              time.sleep(5)
+              self.lp.clickManagecontracts()
+              time.sleep(25)
+              self.driver.save_screenshot(
+                  ".\\Screenshots\\" + "test_where_i_m.png")
+              self.lp.clickFullPaymentPlanDetails()
+              time.sleep(5)
+              self.get = Busi_get_all(self.driver)
+              time.sleep(5)
+              panelresult = self.get.getAll()
+              time.sleep(25)
 
             # calcalculte my values
-            self.cal = busicalculate(self.driver)
-            result_dict = self.cal.initial_cal(self.busivalue.text_finaced_ammount,self.busivalue.text_of_downpayment,self.busivalue.text_no_of_month,self.busivalue.text_intrest)
-            print(result_dict)    
-            
-            result1 = result_dict['value1']
-            result2 = result_dict['value2']
-            result3 = result_dict['value3'] 
-            result4 = result_dict['value4']
+            #   self.cal = busicalculate(self.driver)
+            #   result_dict = self.cal.initial_cal(
+            #       self.busivalue.text_finaced_ammount, self.busivalue.text_of_downpayment, self.busivalue.text_no_of_month, self.busivalue.text_intrest)
+            #   print(result_dict)
 
-            print("totel payble   =  "  + str(result4))
-            print("principle per rec     =" +str(result3))
-            print("recuring amount during def = " +str(result1))
-            print("totel reminnig amount during def = " +str(result2))           
+            # result1 = result_dict['value1']
+            # result2 = result_dict['value2']
+            # result3 = result_dict['value3']
+            # result4 = result_dict['value4']
 
-
-
-compare function sys value and my calculated values 
+            # print("totel payble   =  " + str(result4))
+            # print("principle per rec     =" + str(result3))
+            # print("recuring amount during def = " + str(result1))
+            # print("totel reminnig amount during def = " + str(result2))
 
 
-
-print in excel
-
+# compare function sys value and my calculated values
 
 
+# print in excel
 
-            self.newget=Busi_get_all(self.driver)
+            self.newget = Busi_get_all(self.driver)
             time.sleep(5)
             panelresult = self.newget.getnewvalues()
             self.busivalue.textnewfinacedamount()
             time.sleep(5)
 
-
-                #  calculate after edit
-            self.editcal = editcalculate(self.driver)
-            result_edit_dict = self.cal.initial_cal(self.busivalue.text_finaced_ammount,self.busivalue.text_of_downpayment,self.busivalue.text_no_of_month,self.busivalue.text_intrest)
-            print(result_edit_dict)    
-
- 
- 
+            #  calculate after edit
+            # self.editcal = editcalculate(self.driver)
+            # result_edit_dict = self.cal.initial_cal(
+            #     self.busivalue.text_finaced_ammount, self.busivalue.text_of_downpayment, self.busivalue.text_no_of_month, self.busivalue.text_intrest)
+            # print(result_edit_dict)
 
         else:
             self.logger.error("****Login test failed ****")
-            self.driver.save_screenshot(".\\Screenshots\\" + "test_busiapple.png")
+            self.driver.save_screenshot(
+                ".\\Screenshots\\" + "test_busiapple.png")
             self.driver.close()
             print("2ffffffffffffffffffffffffffffff")
 
-
-
-   
-         
         # def fun_caluculate(self):
         #     cd = AdminCDPage(self.driver)
         #     cd.textfincedamount()
         #     finaced_amount = self.cd.s
-        #     print(finaced_amount) 
+        #     print(finaced_amount)

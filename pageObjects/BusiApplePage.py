@@ -29,7 +29,7 @@ class BusiApplePage:
     # textbox_password_xpath = "/html/body/app-root/div/div/app-login/div/form/div[1]/div[2]/input"
     # textbox_password_xpath = "/html/body/app-root/app-login/div[2]/div/form/div[1]/div/input"
     text_downpayment_amount_xpath = "/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div[1]/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/h4"
-    text_no_of_month_xpath = "/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div[1]/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/h4"
+    text_no_of_month_xpath = "/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div/div[2]/div[2]/app-contract-details/div/div/div[2]/div[2]/div[2]/div[1]/div[3]/p/label/span"
 
     text_new_financed_amount_xpath = "/html/body/div[4]/div[2]/div/mat-dialog-container/app-contract-dialog/div/div[1]/div[1]/div[2]/div[2]/div/input"
     text_new_number_of_month_xpath="/html/body/div[4]/div[2]/div/mat-dialog-container/app-contract-dialog/div/div[1]/div[1]/div[3]/div[1]/input"
@@ -44,6 +44,7 @@ class BusiApplePage:
     text_Paid_to_Business_xpath ="/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[2]/div[3]/div[2]"
     text_Expected_Monthly_Payout_xpath =  "/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[2]/div[4]/div[2]"
     text_downpayment_amount_less_xpath = "/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[1]/div/div[2]/div[1]/h4"
+    text_Interest_xpath = "/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/span[4]/h4/span"
 
 
 
@@ -66,8 +67,8 @@ class BusiApplePage:
         self.value_finaced_ammount=(self.driver.find_element(By.XPATH, self.text_financed_amount_xpath).text)
         print(self.value_finaced_ammount)
     
-        self.text_finaced_ammount=(self.driver.find_element(By.XPATH, self.text_financed_amount_xpath).text)
-        print(self.text_finaced_ammount)
+        # self.text_finaced_ammount=(self.driver.find_element(By.XPATH, self.text_financed_amount_xpath).text)
+        # print(self.text_finaced_ammount)
   
 
 
@@ -107,13 +108,18 @@ class BusiApplePage:
     def textPaidtoBusiness(self):
         self.text_Paid_to_Business=(self.driver.find_element(By.XPATH, self.text_Paid_to_Business_xpath).text)
         print(self.text_Paid_to_Business)    
-    
         
+
+    def textInterest(self):
+        self.text_Interest=(self.driver.find_element(By.XPATH, self.text_Interest_xpath).text)
+        print(self.text_Interest)      
+    
+        # 'text_downpayment_amount': self.text_downpayment_amount , 'text_downpayment_amount_less': self.text_downpayment_amount_less ,
     def textExpectedMonthlyPayout(self):
         self.text_Expected_Monthly_Payout=(self.driver.find_element(By.XPATH, self.text_Expected_Monthly_Payout_xpath).text)
         print(self.text_Expected_Monthly_Payout)
-        return {'value_finaced_ammount': self.value_finaced_ammount , 'text_downpayment_amount': self.text_downpayment_amount , 'text_downpayment_amount_less': self.text_downpayment_amount_less , 
-                'text_number_of_month' : self.text_number_of_month ,  'text_Customer_Payoff_Amount': self.text_Customer_Payoff_Amount , } 
+        # return {'value_finaced_ammount': self.value_finaced_ammount ,  
+        #         'text_number_of_month' : self.text_number_of_month ,  'text_Customer_Payoff_Amount': self.text_Customer_Payoff_Amount , } 
 
     
     

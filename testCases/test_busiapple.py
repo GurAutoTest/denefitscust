@@ -2,7 +2,7 @@ import pytest
 from pageObjects.LoginPageBusi import LoginPageBusi
 from pageObjects.AdminCDPage import AdminCDPage
 from testCases.Busi_get_all import Busi_get_all
-from testCases.calculate import calculate
+from testCases.busicalculate import busicalculate
 from utilities.readProperties import ReadConfig
 from utilities.customLogger import LogGen
 from utilities import XLUtils
@@ -11,9 +11,9 @@ import time
 
 class Test_001_Login:
     # # baseURL = "https://testcustomer.denefits.com"
-    # baseURL = "https://testbusiness.denefits.com"
-    # username = "gurdeep.singh+blacklabel@bridgingtech.com"
-    # password = "sookie"
+    baseURL = "https://testbusiness.denefits.com"
+    username = "gurdeep.singh+secoldpart1712@bridgingtech.com"
+    password = "sookie"
 
     # logger = LogGen.loggen()
     # def getAllfunc():
@@ -35,7 +35,7 @@ class Test_001_Login:
     #     act_title = self.driver.title
     #     time.sleep(5)
     #     print(act_title)
-    baseURL = ReadConfig.getApplicationURL()
+    # baseURL = ReadConfig.getApplicationURL()
     path = ".//TestData/LoginData.xlsx"
     logger = LogGen.loggen()  # Logger
 
@@ -45,7 +45,7 @@ class Test_001_Login:
         self.logger.info("******* Starting Login DDT Test **********")
         self.driver = setup
         self.driver.get(self.baseURL)
-        self.driver.maximize_window()
+        # self.driver.maximize_window()
         self.lp = LoginPageBusi(self.driver)
 
         self.rows = XLUtils.getRowCount(self.path, 'Sheet1')
@@ -53,22 +53,31 @@ class Test_001_Login:
         lst_status = []
         time.sleep(5)
 
-        for r in range(2, self.rows + 1):
-            self.user = XLUtils.readData(self.path, 'Sheet1', r, 1)
-            self.password = XLUtils.readData(self.path, 'Sheet1', r, 2)
-            self.exp = XLUtils.readData(self.path, 'Sheet1', r, 3)
-            time.sleep(5)
+        # for r in range(2, self.rows + 1):
+        #     self.user = XLUtils.readData(self.path, 'Sheet1', r, 1)
+        #     self.password = XLUtils.readData(self.path, 'Sheet1', r, 2)
+        #     self.exp = XLUtils.readData(self.path, 'Sheet1', r, 3)
+        time.sleep(5)
+        print(self.username)
+        print(self.password)
 
-            self.lp.setUserName(self.user)
-            self.lp.setPassword(self.password)
-            self.lp.clickLogin()
-            time.sleep(15)
+        self.lp.setUserName(self.username)
+        time.sleep(5)
+        
+        self.lp.clickContinue()
+        time.sleep(5)
+        
+        self.lp.setPassword(self.password)
+        time.sleep(5)
 
-            act_title = self.driver.title
-            exp_title = "Denefits Customer"
-            print(act_title)
+        self.lp.clickLogin()
+        time.sleep(15)
 
-            if act_title == "Denefits Business":
+        act_title = self.driver.title
+        exp_title = "Denefits Customer"
+        print(act_title)
+
+        if act_title == "Denefits Business":
 
               self.logger.info("****Login test passed ****")
               print("2t")
@@ -85,17 +94,28 @@ class Test_001_Login:
               time.sleep(5)
               panelresult = self.get.getAll()
               time.sleep(25)
+              print("testmeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
+              print(panelresult)
+              result1 = panelresult['value_finaced_ammount']
+              result2 = panelresult['text_downpayment_amount']
+              result3 = panelresult['text_number_of_month']
+              result4 = panelresult['text_Customer_Payoff_Amount']
+              
+              print("totel payble   =  " + str(result4))
+              print("principle per rec     =" + str(result3))
+              print("recuring amount during def = " + str(result1))
+              print("totel reminnig amount during def = " + str(result2))
+              
+
+    
 
             # calcalculte my values
-            #   self.cal = busicalculate(self.driver)
-            #   result_dict = self.cal.initial_cal(
-            #       self.busivalue.text_finaced_ammount, self.busivalue.text_of_downpayment, self.busivalue.text_no_of_month, self.busivalue.text_intrest)
-            #   print(result_dict)
+              self.cal = busicalculate(self.driver)
+              result_dict = self.cal.initial_cal(
+                  panelresult['value1'], panelresult['value2'], panelresult['value3'])
+              print(result_dict)
 
-            # result1 = result_dict['value1']
-            # result2 = result_dict['value2']
-            # result3 = result_dict['value3']
-            # result4 = result_dict['value4']
+     
 
             # print("totel payble   =  " + str(result4))
             # print("principle per rec     =" + str(result3))
@@ -108,11 +128,11 @@ class Test_001_Login:
 
 # print in excel
 
-            self.newget = Busi_get_all(self.driver)
-            time.sleep(5)
-            panelresult = self.newget.getnewvalues()
-            self.busivalue.textnewfinacedamount()
-            time.sleep(5)
+        # self.newget = Busi_get_all(self.driver)
+        # time.sleep(5)
+        # panelresult = self.newget.getnewvalues()
+        # self.busivalue.textnewfinacedamount()
+        # time.sleep(5)
 
             #  calculate after edit
             # self.editcal = editcalculate(self.driver)

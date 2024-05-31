@@ -32,13 +32,14 @@ class Busi_get_all:
         self.busivalue.textnumberofmonth()
         time.sleep(5)
         number = int(self.busivalue.text_number_of_month)
-        if number < 12:
-           self.busivalue.textdownpaymentamount()
-           time.sleep(5)
-        else:
-          self.busivalue.textdownpaymentamountless12()
-          print("inelsefromdp")
-
+        # if number < 12:
+        self.busivalue.textdownpaymentamount()
+        time.sleep(5)
+        #    return {'text_downpayment_amount': self.busivalue.text_downpayment_amount}
+        # else:
+        self.busivalue.textdownpaymentamountless12()
+        print("inelsefromdp")
+        #   return{'text_downpayment_amount_less': self.busivalue.text_downpayment_amount_less}
         self.busivalue.textCustomerPayoffAmount()
         time.sleep(5)
         self.busivalue.textRemainingExpectedPayout()
@@ -46,7 +47,15 @@ class Busi_get_all:
 
         self.busivalue.textExpectedMonthlyPayout()
         time.sleep(5)
-        # print(self.cd.nfm)
+        
+        # self.busivalue.textInterest()
+        time.sleep(5)
+        print(self.busivalue.value_finaced_ammount)
+
+
+        return {'value_finaced_ammount': self.busivalue.value_finaced_ammount ,'text_downpayment_amount': self.busivalue.text_downpayment_amount,  'text_downpayment_amount_less': self.busivalue.text_downpayment_amount_less,
+                'text_number_of_month' : self.busivalue.text_number_of_month ,  'text_Customer_Payoff_Amount': self.busivalue.text_Customer_Payoff_Amount } 
+
 
         # self.busivalue.valueoftheintrest()
         # time.sleep(2)

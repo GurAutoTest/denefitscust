@@ -15,7 +15,7 @@ class busicalculate:
         self.driver = driver
 
 
-      def initial_cal(self , a,b,c,d):
+      def initial_cal(self , a,b,c):
             # self.cd = AdminCDPage(self.driver)
             # self.cd.textfincedamount()
             # time.sleep(5)
@@ -38,11 +38,12 @@ class busicalculate:
             finaced_amount = a.replace("$","").replace(",","")
             down_payment = b.replace("$","").replace(",","")
             no_of_month = int(c)
-            interest = d.replace("% C","").replace(",","")
-            interest = interest.replace("% F","")
-            # print(g)
+            # interest = d.replace("% C","").replace(",","")
+            # interest = interest.replace("% F","")
+            # # print(g)
             # print(h)
-            interest=float(interest)
+            interest= 18.9
+
             finaced_amount=float(finaced_amount)
 
             # print(type(g))

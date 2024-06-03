@@ -45,13 +45,15 @@ class BusiApplePage:
     text_Expected_Monthly_Payout_xpath =  "/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[2]/div[4]/div[2]"
     text_downpayment_amount_less_xpath = "/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[1]/div/div[2]/div[1]/h4"
     text_Interest_xpath = "/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/span[4]/h4/span"
+    text_rec_before_def_xpath = "/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[1]/h4/span[1]"
 
+    text_rec_after_def_xpath = "/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/h4/span[1]"
 
-
-
-
-
-
+    # text_remaining_expected_payout ="/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[2]/div[2]/div[2]"
+    # text_paid_to_business = "/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[2]/div[3]/div[2]"
+    # text_expected_monthly_payout = "/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[2]/div[4]/div[2]"
+    text_donated_amount_xpath ="/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[2]/div[5]/div[2]/span"
+    text_total_balance_remaning_xpath ="/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/div/div/div/div/div/div[1]/div[2]/div[8]/div[2]"
 
 
 
@@ -121,7 +123,22 @@ class BusiApplePage:
         # return {'value_finaced_ammount': self.value_finaced_ammount ,  
         #         'text_number_of_month' : self.text_number_of_month ,  'text_Customer_Payoff_Amount': self.text_Customer_Payoff_Amount , } 
 
+    def textrecbeforedef(self):
+        self.text_rec_before_def=(self.driver.find_element(By.XPATH, self.text_rec_before_def_xpath).text)
+        print(self.text_rec_before_def) 
     
+    def textrecafterdef(self):
+        self.text_rec_after_def=(self.driver.find_element(By.XPATH, self.text_rec_after_def_xpath).text)
+        print(self.text_rec_after_def) 
+  
+  
+  
+    def textdonatedamount(self):
+        self.text_donated_amount=(self.driver.find_element(By.XPATH, self.text_donated_amount_xpath).text)
+        print(self.text_donated_amount) 
+    def texttotalbalanceremaning(self):
+        self.text_total_balance_remaning=(self.driver.find_element(By.XPATH, self.text_total_balance_remaning_xpath).text)
+        print(self.text_total_balance_remaning) 
     
 
     def textnewnumberofmonth(self):

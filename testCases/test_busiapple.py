@@ -14,6 +14,7 @@ class Test_001_Login:
     baseURL = "https://testbusiness.denefits.com"
     username = "gurdeep.singh+secoldpart1712@bridgingtech.com"
     password = "sookie"
+    contract_id = "82553"
 
     # logger = LogGen.loggen()
     # def getAllfunc():
@@ -85,9 +86,20 @@ class Test_001_Login:
               self.lp.clickPaymentPlans()
               time.sleep(5)
               self.lp.clickManagecontracts()
-              time.sleep(25)
-              self.driver.save_screenshot(
-                  ".\\Screenshots\\" + "test_where_i_m.png")
+              time.sleep(5)
+              
+              self.lp.setsearchbar(self.contract_id)
+              time.sleep(5)
+
+
+              self.lp.pressenter()
+              time.sleep(5)
+
+
+
+
+            #   self.driver.save_screenshot(
+            #       ".\\Screenshots\\" + "test_where_i_m.png")
               self.lp.clickFullPaymentPlanDetails()
               time.sleep(5)
               self.get = Busi_get_all(self.driver)
@@ -111,8 +123,7 @@ class Test_001_Login:
 
             # calcalculte my values
               self.cal = busicalculate(self.driver)
-              result_dict = self.cal.initial_cal(
-                  panelresult['value1'], panelresult['value2'], panelresult['value3'])
+              result_dict = self.cal.initial_cal(result1,result2,result3)
               print(result_dict)
 
      

@@ -1,4 +1,5 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 
 
 class LoginPageBusi:
@@ -21,7 +22,7 @@ class LoginPageBusi:
    
     button_Manage_contracts_xpath ="/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div[2]/app-sidemenu[3]/div/div/app-sidemenu[1]/mat-list-item/div/div[2]/a"
     button_full_payment_plan_xpath = "/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div/div[2]/div[2]/app-contract-details/div/div/div[2]/mat-accordion[1]/mat-expansion-panel/mat-expansion-panel-header/span[1]/mat-panel-title"
-  
+    textbox_search_xpath ="/html/body/app-root/app-layouts/mat-sidenav-container/mat-sidenav-content/main/app-contract-list/div/div[1]/div[3]/div/input"  
 
     def __init__(self, driver):
         self.driver = driver
@@ -54,3 +55,12 @@ class LoginPageBusi:
         self.driver.find_element(By.XPATH, self.button_Manage_contracts_xpath).click()
     def clickFullPaymentPlanDetails(self):
         self.driver.find_element(By.XPATH, self.button_full_payment_plan_xpath).click()
+    def setsearchbar(self, contract_id):
+        self.driver.find_element(By.XPATH, self.textbox_search_xpath).clear()
+        self.driver.find_element(By.XPATH, self.textbox_search_xpath).send_keys(contract_id)
+        
+    def pressenter(self):
+        self.driver.find_element(By.XPATH, self.textbox_search_xpath).send_keys(Keys.RETURN)
+
+
+

@@ -47,14 +47,32 @@ class Busi_get_all:
 
         self.busivalue.textExpectedMonthlyPayout()
         time.sleep(5)
+
+        self.busivalue.textPaidtoBusiness()
+        time.sleep(5)
         
-        # self.busivalue.textInterest()
+
+        self.busivalue.textrecbeforedef()
+        time.sleep(5)
+        self.busivalue.textrecafterdef()
+        time.sleep(5)
+
+
+
+        self.busivalue.texttotalbalanceremaning()
+        time.sleep(5)
+        self.busivalue.textdonatedamount()
+        time.sleep(5)
+        self.busivalue.textInterest()
         time.sleep(5)
         print(self.busivalue.value_finaced_ammount)
 
 
         return {'value_finaced_ammount': self.busivalue.value_finaced_ammount ,'text_downpayment_amount': self.busivalue.text_downpayment_amount,  'text_downpayment_amount_less': self.busivalue.text_downpayment_amount_less,
-                'text_number_of_month' : self.busivalue.text_number_of_month ,  'text_Customer_Payoff_Amount': self.busivalue.text_Customer_Payoff_Amount } 
+                'text_Interest':self.busivalue.text_Interest,  'text_number_of_month' : self.busivalue.text_number_of_month ,  'text_Customer_Payoff_Amount': self.busivalue.text_Customer_Payoff_Amount ,'textRemainingExpectedPayout' :
+                self.busivalue.text_Remaining_Expected_Payout ,'textExpectedMonthlyPayout' : self.busivalue.text_Expected_Monthly_Payout,
+                  'texttotalbalanceremaning' : self.busivalue.text_total_balance_remaning ,'text_Paid_to_Business':self.busivalue.text_Paid_to_Business
+               , 'textdonatedamount': self.busivalue.text_donated_amount , 'textrecbeforedef' : self.busivalue.text_rec_before_def , 'textrecafterdef' : self.busivalue.text_rec_after_def} 
 
 
         # self.busivalue.valueoftheintrest()

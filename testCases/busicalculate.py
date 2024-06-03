@@ -36,13 +36,16 @@ class busicalculate:
             # print("abc")
             # print(self.finaced_amount)
             finaced_amount = a.replace("$","").replace(",","")
+            print(finaced_amount)
             down_payment = b.replace("$","").replace(",","")
+            print(down_payment)
             no_of_month = int(c)
+            print(no_of_month)
             # interest = d.replace("% C","").replace(",","")
             # interest = interest.replace("% F","")
             # # print(g)
             # print(h)
-            interest= 18.9
+            interest= 19.9
 
             finaced_amount=float(finaced_amount)
 
@@ -56,8 +59,9 @@ class busicalculate:
              # print("Recuring amount during deffred     =  "  + str(recuring_amont_during_def_with_transection))  
              totel_remaning_amount= recuring_amont_with_transection*no_of_month
               # print("totel_reaning_during def  =  "   + str(totel_remaning_during_def))   
-              
-             return {'value1': recuring_amont_with_transection , 'value2':totel_remaning_amount , 'value3': principle_per_month , 'value4' : totel_payble_with_intrest_flat} 
+             rec_after_def =  totel_payble_with_intrest_flat / no_of_month
+
+             return {'value1': recuring_amont_with_transection , 'value2':totel_remaning_amount , 'value3': principle_per_month , 'value4' : totel_payble_with_intrest_flat , 'value5' : totel_remaning_amount  ,'value6' : rec_after_def } 
 
 
             else:
@@ -65,15 +69,17 @@ class busicalculate:
               # print(c1)
               c3 = pow(c1,no_of_month)
               # print(c3)
-              c2 = finaced_amount * c3
+              totel_remaning_amount = finaced_amount * c3
               # print("totel payble   =  "  +str(c2)) 
               principle_per_month=finaced_amount/ no_of_month
               recuring_amont_during_def_with_transection  =  principle_per_month * 1.03
               # print("Recuring amount during deffred     =  "  + str(recuring_amont_during_def_with_transection))  
               totel_remaning_during_def= recuring_amont_during_def_with_transection*no_of_month
               # print("totel_reaning_during def  =  "   + str(totel_remaning_during_def))   
+              rec_after_def =  totel_remaning_amount / no_of_month
+
               
-              return {'value1': recuring_amont_during_def_with_transection , 'value2':totel_remaning_during_def , 'value3': principle_per_month , 'value4' : c2} 
+              return {'recuring_amont_during_def_with_transection': recuring_amont_during_def_with_transection , 'totel_remaning_during_def':totel_remaning_during_def , 'principle_per_month': principle_per_month , 'value4' : totel_remaning_amount  ,'value5' : rec_after_def } 
 
 
 

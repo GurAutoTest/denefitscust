@@ -35,10 +35,10 @@ class busicalculate:
             # print(d)
             # print("abc")
             # print(self.finaced_amount)
-            finaced_amount = a.replace("$","").replace(",","")
-            print(finaced_amount)
-            down_payment = b.replace("$","").replace(",","")
-            print(down_payment)
+            # finaced_amount = a.replace("$","").replace(",","")
+            # print(finaced_amount)
+            # down_payment = b.replace("$","").replace(",","")
+            # print(down_payment)
             no_of_month = int(c)
             print(no_of_month)
             # interest = d.replace("% C","").replace(",","")
@@ -47,14 +47,14 @@ class busicalculate:
             # print(h)
             interest= 19.9
 
-            finaced_amount=float(finaced_amount)
+            # finaced_amount=float(finaced_amount)
 
             # print(type(g))
             if (interest == 19.9):
-             totel_payble_with_intrest_flat = (finaced_amount*1.1990)
+             totel_payble_with_intrest_flat = (a*1.1990)
              print("flat",totel_payble_with_intrest_flat)
              # print("totel payble   =  "  +str(c2)) 
-             principle_per_month=finaced_amount/ no_of_month
+             principle_per_month=a/ no_of_month
              recuring_amont_during_def_with_transection  =  principle_per_month * 1.04
              # print("Recuring amount during deffred     =  "  + str(recuring_amont_during_def_with_transection))  
              totel_remaning_during_def= recuring_amont_during_def_with_transection*no_of_month
@@ -146,7 +146,7 @@ class busicalculate:
 
          print(a)
          print(b)
-         
+
 
             
 

@@ -32,11 +32,9 @@ class Busi_get_all:
         self.busivalue.textnumberofmonth()
         time.sleep(5)
         number = int(self.busivalue.text_number_of_month)
-        # if number < 12:
         self.busivalue.textdownpaymentamount()
         time.sleep(5)
-        #    return {'text_downpayment_amount': self.busivalue.text_downpayment_amount}
-        # else:
+        
         self.busivalue.textdownpaymentamountless12()
         print("inelsefromdp")
         #   return{'text_downpayment_amount_less': self.busivalue.text_downpayment_amount_less}
@@ -54,8 +52,8 @@ class Busi_get_all:
 
         self.busivalue.textrecbeforedef()
         time.sleep(5)
-        self.busivalue.textrecafterdef()
-        time.sleep(5)
+        # self.busivalue.textrecafterdef()
+        # time.sleep(5)
 
 
 
@@ -63,9 +61,17 @@ class Busi_get_all:
         time.sleep(5)
         self.busivalue.textdonatedamount()
         time.sleep(5)
-        self.busivalue.textInterest()
-        time.sleep(5)
+        
         print(self.busivalue.value_finaced_ammount)
+        # if number < 12:
+        self.busivalue.textrecafterdef(number)
+        time.sleep(5)      
+        self.busivalue.textInterest(number)
+        time.sleep(5) 
+        
+
+
+
 
 
         return {'value_finaced_ammount': self.busivalue.value_finaced_ammount ,'text_downpayment_amount': self.busivalue.text_downpayment_amount,  'text_downpayment_amount_less': self.busivalue.text_downpayment_amount_less,

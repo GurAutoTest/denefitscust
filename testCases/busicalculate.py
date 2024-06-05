@@ -55,13 +55,30 @@ class busicalculate:
              print("flat",totel_payble_with_intrest_flat)
              # print("totel payble   =  "  +str(c2)) 
              principle_per_month=finaced_amount/ no_of_month
-             recuring_amont_with_transection  =  principle_per_month * 1.03
+             recuring_amont_during_def_with_transection  =  principle_per_month * 1.04
              # print("Recuring amount during deffred     =  "  + str(recuring_amont_during_def_with_transection))  
-             totel_remaning_amount= recuring_amont_with_transection*no_of_month
+             totel_remaning_during_def= recuring_amont_during_def_with_transection*no_of_month
               # print("totel_reaning_during def  =  "   + str(totel_remaning_during_def))   
-             rec_after_def =  totel_payble_with_intrest_flat / no_of_month
+            
+             new_uf =  totel_payble_with_intrest_flat / no_of_month + 1
+             rec_after_def =  totel_payble_with_intrest_flat / no_of_month + 1
 
-             return {'value1': recuring_amont_with_transection , 'value2':totel_remaning_amount , 'value3': principle_per_month , 'value4' : totel_payble_with_intrest_flat , 'value5' : totel_remaning_amount  ,'value6' : rec_after_def } 
+             customer_payoff_amount = recuring_amont_during_def_with_transection * no_of_month
+          
+             expected_monthly_payout = principle_per_month*0.995
+             remaining_expected_payout = expected_monthly_payout * no_of_month
+             Paid_to_Business = "working on it"
+             donatedamount = "working on it"
+
+
+            #  return {'value1': recuring_amont_with_transection , 'value2':totel_remaning_amount , 'value3': principle_per_month , 'value4' : totel_payble_with_intrest_flat ,
+            #           'value5' : totel_remaning_amount  ,'rec_after_def' : rec_after_def , 'customer_payoff_amount' : customer_payoff_amount , 'expected_monthly_payout' :expected_monthly_payout 
+            #            , 'remaining_expected_payout' : remaining_expected_payout  
+            #            } 
+             return {'value_finaced_ammount' :finaced_amount , 'text_downpayment_amount': down_payment , 'text_downpayment_amount_less': down_payment , 'text_Interest': interest ,
+                       'text_number_of_month': no_of_month,'text_Customer_Payoff_Amount': customer_payoff_amount,'textRemainingExpectedPayout': remaining_expected_payout,
+                        'textExpectedMonthlyPayout': expected_monthly_payout, 'texttotalbalanceremaning': totel_remaning_during_def,'text_Paid_to_Business': Paid_to_Business,
+                         'textdonatedamount': donatedamount,  'textrecbeforedef': recuring_amont_during_def_with_transection ,  'textrecafterdef': rec_after_def }
 
 
             else:
@@ -72,14 +89,32 @@ class busicalculate:
               totel_remaning_amount = finaced_amount * c3
               # print("totel payble   =  "  +str(c2)) 
               principle_per_month=finaced_amount/ no_of_month
-              recuring_amont_during_def_with_transection  =  principle_per_month * 1.03
+              recuring_amont_during_def_with_transection  =  principle_per_month * 1.04
               # print("Recuring amount during deffred     =  "  + str(recuring_amont_during_def_with_transection))  
               totel_remaning_during_def= recuring_amont_during_def_with_transection*no_of_month
               # print("totel_reaning_during def  =  "   + str(totel_remaning_during_def))   
               rec_after_def =  totel_remaning_amount / no_of_month
+              customer_payoff_amount = recuring_amont_during_def_with_transection * no_of_month
+          
+              expected_monthly_payout = recuring_amont_during_def_with_transection*0.995
+              remaining_expected_payout = expected_monthly_payout * no_of_month
+              Paid_to_Business = "working on it"
+              donatedamount = "working on it"
+
+
+
 
               
-              return {'recuring_amont_during_def_with_transection': recuring_amont_during_def_with_transection , 'totel_remaning_during_def':totel_remaning_during_def , 'principle_per_month': principle_per_month , 'value4' : totel_remaning_amount  ,'value5' : rec_after_def } 
+              return {'value_finaced_ammount' :finaced_amount , 'text_downpayment_amount': down_payment , 'text_downpayment_amount_less': down_payment , 'text_Interest': interest ,
+                       'text_number_of_month': no_of_month,'text_Customer_Payoff_Amount': customer_payoff_amount,'textRemainingExpectedPayout': remaining_expected_payout,
+                        'textExpectedMonthlyPayout': expected_monthly_payout, 'texttotalbalanceremaning': totel_remaning_during_def,'text_Paid_to_Business': Paid_to_Business,
+                         'textdonatedamount': donatedamount,  'textrecbeforedef': principle_per_month ,  'textrecafterdef': rec_after_def
+
+                      #  'totel_remaning_during_def':totel_remaning_during_def , 'principle_per_month': principle_per_month , 'value4' : totel_remaning_amount 
+                      #    ,'value5' : rec_after_def, 'expected_monthly_payout' : expected_monthly_payout , 
+                      #    'remaining_expected_payout' : remaining_expected_payout  
+                         } 
+
 
 
 
@@ -106,10 +141,12 @@ class busicalculate:
 
 
 
+      def compare(self , a,b):
+         print("inside compare")
 
-            # service_amount = int(g)
-            # print(service_amount)
-            # print(type(service_amount))
+         print(a)
+         print(b)
+         
 
             
 

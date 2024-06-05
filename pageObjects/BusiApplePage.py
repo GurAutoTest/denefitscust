@@ -95,16 +95,25 @@ class BusiApplePage:
     
     def textnumberofmonth(self):
         self.text_number_of_month=(self.driver.find_element(By.XPATH, self.text_no_of_month_xpath).text)
-        print("errrorhare")
         print(self.text_number_of_month)    
     
     
     def textCustomerPayoffAmount(self):
         self.text_Customer_Payoff_Amount=(self.driver.find_element(By.XPATH, self.text_Customer_Payoff_Amount_xpath).text)
+        self.text_Customer_Payoff_Amount = self.text_Customer_Payoff_Amount.replace("$","").replace(",","")
+        self.text_Customer_Payoff_Amount = float(self.text_Customer_Payoff_Amount)
+        self.text_Customer_Payoff_Amount = round(self.text_Customer_Payoff_Amount)
+
+        print("round amount")
         print(self.text_Customer_Payoff_Amount)    
     
     def textRemainingExpectedPayout(self):
         self.text_Remaining_Expected_Payout=(self.driver.find_element(By.XPATH, self.text_Remaining_Expected_Payout_xpath).text)
+        self.text_Remaining_Expected_Payout = self.text_Remaining_Expected_Payout.replace("$","").replace(",","")
+        self.text_Remaining_Expected_Payout = float(self.text_Remaining_Expected_Payout)
+        self.text_Remaining_Expected_Payout = round(self.text_Remaining_Expected_Payout)
+        print("round amount")
+        
         print(self.text_Remaining_Expected_Payout)    
     
     def textPaidtoBusiness(self):
@@ -112,9 +121,19 @@ class BusiApplePage:
         print(self.text_Paid_to_Business)    
         
 
-    def textInterest(self):
-        self.text_Interest=(self.driver.find_element(By.XPATH, self.text_Interest_xpath).text)
-        print(self.text_Interest)      
+    def textInterest(self , number):
+        if number > 12:
+           self.text_Interest=(self.driver.find_element(By.XPATH, self.text_Interest_xpath).text)
+           print(self.text_Interest)    
+        else :
+           self.text_Interest = "no intraest"
+           print(self.text_Interest)    
+            
+
+            
+
+              
+          
     
         # 'text_downpayment_amount': self.text_downpayment_amount , 'text_downpayment_amount_less': self.text_downpayment_amount_less ,
     def textExpectedMonthlyPayout(self):
@@ -127,9 +146,15 @@ class BusiApplePage:
         self.text_rec_before_def=(self.driver.find_element(By.XPATH, self.text_rec_before_def_xpath).text)
         print(self.text_rec_before_def) 
     
-    def textrecafterdef(self):
-        self.text_rec_after_def=(self.driver.find_element(By.XPATH, self.text_rec_after_def_xpath).text)
-        print(self.text_rec_after_def) 
+    def textrecafterdef(self , number):
+        if number > 12:
+            self.text_rec_after_def=(self.driver.find_element(By.XPATH, self.text_rec_after_def_xpath).text)
+            print(self.text_rec_after_def) 
+        else :
+            self.text_rec_after_def = "no after def"
+            print(self.text_rec_after_def) 
+              
+
   
   
   

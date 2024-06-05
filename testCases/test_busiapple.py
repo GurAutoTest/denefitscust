@@ -6,6 +6,8 @@ from testCases.busicalculate import busicalculate
 from utilities.readProperties import ReadConfig
 from utilities.customLogger import LogGen
 from utilities import XLUtils
+from openpyxl import Workbook
+from testCases.createExcel import excelFileCreation
 import time
 
 
@@ -14,7 +16,7 @@ class Test_001_Login:
     baseURL = "https://testbusiness.denefits.com"
     username = "gurdeep.singh+secoldpart1712@bridgingtech.com"
     password = "sookie"
-    contract_id = "82553"
+    contract_id = "82729"
 
     # logger = LogGen.loggen()
     # def getAllfunc():
@@ -30,11 +32,11 @@ class Test_001_Login:
     #     time.sleep(7)
     #     self.lp.clickContinue()
     #     self.lp.setPassword(self.password)
-    #     time.sleep(5)
+    #     time.sleep(2)
     #     self.lp.clickLogin()
     #     time.sleep(25)
     #     act_title = self.driver.title
-    #     time.sleep(5)
+    #     time.sleep(2)
     #     print(act_title)
     # baseURL = ReadConfig.getApplicationURL()
     path = ".//TestData/LoginData.xlsx"
@@ -52,24 +54,24 @@ class Test_001_Login:
         self.rows = XLUtils.getRowCount(self.path, 'Sheet1')
         print('Number of rows...', self.rows)
         lst_status = []
-        time.sleep(5)
+        time.sleep(2)
 
         # for r in range(2, self.rows + 1):
         #     self.user = XLUtils.readData(self.path, 'Sheet1', r, 1)
         #     self.password = XLUtils.readData(self.path, 'Sheet1', r, 2)
         #     self.exp = XLUtils.readData(self.path, 'Sheet1', r, 3)
-        time.sleep(5)
+        time.sleep(2)
         print(self.username)
         print(self.password)
 
         self.lp.setUserName(self.username)
-        time.sleep(5)
+        time.sleep(2)
         
         self.lp.clickContinue()
-        time.sleep(5)
+        time.sleep(2)
         
         self.lp.setPassword(self.password)
-        time.sleep(5)
+        time.sleep(2)
 
         self.lp.clickLogin()
         time.sleep(15)
@@ -84,16 +86,16 @@ class Test_001_Login:
               print("2t")
 
               self.lp.clickPaymentPlans()
-              time.sleep(5)
+              time.sleep(2)
               self.lp.clickManagecontracts()
-              time.sleep(5)
+              time.sleep(10)
               
               self.lp.setsearchbar(self.contract_id)
-              time.sleep(5)
+              time.sleep(2)
 
 
               self.lp.pressenter()
-              time.sleep(5)
+              time.sleep(10)
 
 
 
@@ -101,22 +103,53 @@ class Test_001_Login:
             #   self.driver.save_screenshot(
             #       ".\\Screenshots\\" + "test_where_i_m.png")
               self.lp.clickFullPaymentPlanDetails()
-              time.sleep(5)
+              time.sleep(2)
               self.get = Busi_get_all(self.driver)
-              time.sleep(5)
+              time.sleep(2)
               panelresult = self.get.getAll()
-              time.sleep(25)
+              time.sleep(2)
               print("testmeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
               print(panelresult)
+
+              excelFileCreation(panelresult, "test_file2", "sheet") 
+              # return
+              
               result1 = panelresult['value_finaced_ammount']
               result2 = panelresult['text_downpayment_amount']
               result3 = panelresult['text_number_of_month']
               result4 = panelresult['text_Customer_Payoff_Amount']
               
-              print("totel payble   =  " + str(result4))
-              print("principle per rec     =" + str(result3))
-              print("recuring amount during def = " + str(result1))
-              print("totel reminnig amount during def = " + str(result2))
+              # wb = self.path
+              
+              # headers = list(panelresult.keys())
+              # # # wb.append(headers)
+              
+              # values = [panelresult[header] for header in headers]
+              # # # wb.append(values)
+              
+              # # for r in range(2, self.rows + 1):
+              # XLUtils.writeData(self.path, 'Sheet1',values)
+              # print(values)
+                  
+              
+              
+              
+              
+              
+              
+              
+              # wb = Workbook()
+              # ws = wb.active
+              #      # Write data to the worksheet
+              # for row in panelresult:
+              #     ws.append(row)
+              #     # Save the workbo
+              #     wb.save(result1+".xlsx")
+              
+              # print("totel payble   =  " + str(result4))
+              # print("principle per rec     =" + str(result3))
+              # print("recuring amount during def = " + str(result1))
+              # print("totel reminnig amount during def = " + str(result2))
               
 
     
@@ -125,6 +158,13 @@ class Test_001_Login:
               self.cal = busicalculate(self.driver)
               result_dict = self.cal.initial_cal(result1,result2,result3)
               print(result_dict)
+
+
+
+              self.cal = busicalculate(self.driver)
+              compare_result = self.cal.compare(panelresult,result_dict)
+
+
 
      
 
@@ -140,10 +180,10 @@ class Test_001_Login:
 # print in excel
 
         # self.newget = Busi_get_all(self.driver)
-        # time.sleep(5)
+        # time.sleep(2)
         # panelresult = self.newget.getnewvalues()
         # self.busivalue.textnewfinacedamount()
-        # time.sleep(5)
+        # time.sleep(2)
 
             #  calculate after edit
             # self.editcal = editcalculate(self.driver)

@@ -186,9 +186,30 @@ class BusiApplePage:
     def textdonatedamount(self):
         self.text_donated_amount=(self.driver.find_element(By.XPATH, self.text_donated_amount_xpath).text)
         self.text_donated_amount = self.text_donated_amount.replace("$","").replace(",","")
+        if '+' in self.text_donated_amount:
+            self.text_donated_amount = self.trim_after_plus(self.text_donated_amount)
+            print("trimed"+ self.text_donated_amount)
+
         self.text_donated_amount = float(self.text_donated_amount)
         self.text_donated_amount = round(self.text_donated_amount)
         print(self.text_donated_amount) 
+
+
+    def trim_after_plus(self, input_string):
+        # Find the position of the '+' character
+        plus_index = input_string.find('+')
+        
+        # If the '+' character is found, trim the string including '+'
+        if plus_index != -1:
+            trimmed_string = input_string[:plus_index + 1].strip()
+        else:
+            trimmed_string = input_string.strip()
+        
+        return trimmed_string
+
+
+
+
     def texttotalbalanceremaning(self):
         self.text_total_balance_remaning=(self.driver.find_element(By.XPATH, self.text_total_balance_remaning_xpath).text)
         self.text_total_balance_remaning = self.text_total_balance_remaning.replace("$","").replace(",","")

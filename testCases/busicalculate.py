@@ -146,25 +146,54 @@ class busicalculate:
               # totel_payble_with_intrest_compund = ((float(finaced_amount)*(1+float(interest)/1200))pow no_of_month)
               # print("compound",totel_payble_with_intrest_compund)
               
-              
+      
+      
       def compare(self, a, b):
-         print("inside compare")
+        print("inside compare")
+          # Convert dictionaries to JSON strings if they are not already
+        if isinstance(a, dict):
+            a = json.dumps(a)
+        if isinstance(b, dict):
+            b = json.dumps(b)
 
-         print(a)
-         print(b)
-         dict1 = json.loads(a)
-         dict2 = json.loads(b)
-         for key in dict1:
-                if key in dict2:
-                   if dict1[key] != dict2[key]:
-                     print(f"Difference found at key '{key}': '{dict1[key]}' vs '{dict2[key]}'")
-                else:
-                    print(f"Key '{key}' not found in second JSON")
+        print("First JSON:", a)
+        print("Second JSON:", b)
+        dict1 = json.loads(a)
+        dict2 = json.loads(b)
+        
+        # Check for differences in keys and values
+        for key in dict1:
+            if key in dict2:
+                if dict1[key] != dict2[key]:
+                    print(f"Difference found at key '{key}': '{dict1[key]}' vs '{dict2[key]}'")
+            else:
+                print(f"Key '{key}' not found in second JSON")
+        
+        # Check for keys in dict2 not in dict1
+        for key in dict2:
+            if key not in dict1:
+                print(f"Key '{key}' not found in first JSON")
+
+
+
+    #   def compare(self, a, b):
+    #      print("inside compare")
+
+    #      print(a)
+    #      print(b)
+    #      dict1 = json.loads(a)
+    #      dict2 = json.loads(b)
+    #      for key in dict1:
+    #             if key in dict2:
+    #                if dict1[key] != dict2[key]:
+    #                  print(f"Difference found at key '{key}': '{dict1[key]}' vs '{dict2[key]}'")
+    #             else:
+    #                 print(f"Key '{key}' not found in second JSON")
     
-    # Check for keys in dict2 not in dict1
-         for key in dict2:
-                if key not in dict1:
-                  print(f"Key '{key}' not found in first JSON")
+    # # Check for keys in dict2 not in dict1
+    #      for key in dict2:
+    #             if key not in dict1:
+    #               print(f"Key '{key}' not found in first JSON")
 
 
 

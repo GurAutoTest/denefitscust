@@ -16,7 +16,7 @@ class Test_001_Login:
     baseURL = "https://testbusiness.denefits.com"
     username = "gurdeep.singh+secoldpart1712@bridgingtech.com"
     password = "sookie"
-    contract_id = "82729"
+    contract_id = "84679"
 
     # logger = LogGen.loggen()
     # def getAllfunc():

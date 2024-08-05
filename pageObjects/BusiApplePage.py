@@ -91,7 +91,7 @@ class BusiApplePage:
   
     def textdownpaymentamount(self):
         self.text_downpayment_amount=(self.driver.find_element(By.XPATH, self.text_downpayment_amount_xpath).text)
-        self.text_downpayment_amount = self.text_downpayment_amount.replace("$","").replace(",","")
+        self.text_downpayment_amount = self.text_downpayment_amount.replace("$","").replace(",","").replace("+ 4.00%","")
         self.text_downpayment_amount = float(self.text_downpayment_amount)
         self.text_downpayment_amount = round(self.text_downpayment_amount)
         print(self.text_downpayment_amount)   
